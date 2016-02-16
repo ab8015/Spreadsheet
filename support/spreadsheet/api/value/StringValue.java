@@ -5,7 +5,7 @@ package spreadsheet.api.value;
  */
 public final class StringValue implements Value {
 
-    private final String expression;
+    private final String expression; // here the expression is the value
 
     public StringValue(String expression) {
         this.expression = expression;

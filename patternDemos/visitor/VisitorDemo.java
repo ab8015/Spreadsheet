@@ -34,6 +34,12 @@ public class VisitorDemo {
          * Thingy is an existing class/interface that you want to
          * extend/implement.
          */
+
+        // we are overriding the valuevisitor methods of the new ValueVisitor() class
+        // to do different things with different values
+        // we can then pass in this value visitor to any value and
+        // we will get the behaviour for that corresponding value
+
         v.visit(new ValueVisitor() {
 
             @Override

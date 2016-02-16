@@ -13,6 +13,8 @@ public final class DoubleValue implements Value {
         this.value = d;
     }
 
+    // for example when we call the visit method of a double value, we will invoke the visitDouble method
+    // of the valuevisitor argument which was passed in and do a similar thing for other values
     @Override
     public void visit(ValueVisitor visit) {
         visit.visitDouble(value);

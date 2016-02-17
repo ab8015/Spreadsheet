@@ -5,9 +5,9 @@ package spreadsheet.api.observer;
  */
 public interface Subject{
 
-    public void register (Observer newobserver);
+    //public void register (Observer newobserver);
 
-    public void unregister (Observer toremoveobserver);
+    //public void unregister (Observer toremoveobserver);
 
     public void notifyObservers();
 

@@ -6,26 +6,28 @@ import spreadsheet.api.value.StringValue;
 import spreadsheet.api.value.Value;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Spreadsheet implements SpreadsheetInterface {
 
     private HashMap<CellLocation,Cell>  cells = new HashMap<CellLocation,Cell>();
+    private Set<Cell> needtobeupdated = new HashSet<Cell>();
 
     public void setExpression(CellLocation location, String expression){
         if (!cells.containsKey(location)) {
             Cell cell = new Cell(this, location); // by default the value is a string value
             cell.setExpression(expression);
-            cell.setValue(new StringValue(expression));
+            //cell.setValue(new StringValue(expression));
             cells.put(location,cell);
         }
         else{
-            cells.get(location).expression=expression;
-            cells.get(location).value=new StringValue(expression);
+            cells.get(location).setExpression(expression);
+            //cells.get(location).value=new StringValue(expression);
         }
     }
 
     public void recompute(){
-
     }
 
     public String getExpression(CellLocation location){

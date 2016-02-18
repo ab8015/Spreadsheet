@@ -5,34 +5,34 @@ import spreadsheet.api.SpreadsheetInterface;
 import spreadsheet.api.value.StringValue;
 import spreadsheet.api.value.Value;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class Spreadsheet implements SpreadsheetInterface {
 
-    private HashMap<CellLocation,Cell>  cells = new HashMap<CellLocation,Cell>();
+    private HashMap<CellLocation,Cell>  cellswithexpressionsset = new HashMap<CellLocation,Cell>();
     private Set<Cell> needtoberecomputed = new HashSet<Cell>();
 
 
     // here containsKey uses deep equality checking if the fields(the string representation) of the locations
-    // are the same, the strings slso being compared with deep equality??
+    // are the same, the strings slso being compared with deep equality?? i think so.
     // don't need if else test really
+    // everytime an expression is set the celllocation with a new Cell of type StringValue is added to the hashmap
+    // if that celllocation is already in the hashmap, then it's setExpression method is called
     public void setExpression(CellLocation location, String expression){
-        if (!cells.containsKey(location)) {
+        if (!cellswithexpressionsset.containsKey(location)) {
             Cell cell = new Cell(this, location); // by default the value is a string value
-            cell.setExpression(expression);
+            cell.setExpression(expression); // but then the cells setExpression method changes it to an invalid value
             //cell.setValue(new StringValue(expression));
-            cells.put(location,cell);
+            cellswithexpressionsset.put(location,cell);
         }
         else{
-            cells.get(location).setExpression(expression);
+            cellswithexpressionsset.get(location).setExpression(expression);
             //cells.get(location).value=new StringValue(expression);
         }
     }
 
 
+    // why can't we use a for loop???
     public void recompute(){
 
      Iterator<Cell> it = needtoberecomputed.iterator();
@@ -41,6 +41,7 @@ public class Spreadsheet implements SpreadsheetInterface {
 
             String expr = cell.getExpression();
             cell.setValue(new StringValue(expr));
+            //recomputeCell(cell);
 
             it.remove();
         }
@@ -55,20 +56,38 @@ public class Spreadsheet implements SpreadsheetInterface {
      */
     }
 
+    private void recomputeCell(Cell c){
+        LinkedHashSet<Cell> cellsSeen = new LinkedHashSet<Cell>();
+        cellsSeen.add(c);
+        checkLoops(c,cellsSeen);
+    }
+
+    private void checkLoops(Cell c, LinkedHashSet<Cell> cellsSeen){
+
+    }
+
+    private void markAsLoop(Cell startcell, LinkedHashSet<Cell> cells){
+
+    }
+
+
+
+
+
     public String getExpression(CellLocation location){
         // every location when created by the gui is given a correct string expression
         // , i.e. the current location which it is at, like "a4", "b2", etc. ;  by the gui itself.
-        if(!cells.containsKey(location)) {
+        if(!cellswithexpressionsset.containsKey(location)) {
             return location.toString();
         }
-        return cells.get(location).expression;
+        return cellswithexpressionsset.get(location).expression;
     }
 
     public Value getValue(CellLocation location){
-        if (!cells.containsKey(location)) {
+        if (!cellswithexpressionsset.containsKey(location)) {
             return new StringValue(" ");
         }
-        return cells.get(location).value;
+        return cellswithexpressionsset.get(location).value;
     }
 
     public void addToNeedToBeRecomputed(Cell cell){
@@ -79,11 +98,8 @@ public class Spreadsheet implements SpreadsheetInterface {
         return needtoberecomputed.contains(cell);
     }
 
-    // remember cell location is a class which contains a
-    // string field representing its representation
-    public Cell convertLocationToCell(CellLocation cellLoc){
-        return new Cell(this,cellLoc); // it will make a new cell with a string
-                                       // by default its expression is the representation of cellLoc
-                                       // and its value is a string value depending on its expression
+    public Cell getCell(CellLocation cellLoc){
+        return cellswithexpressionsset.get(cellLoc);
     }
+
 }

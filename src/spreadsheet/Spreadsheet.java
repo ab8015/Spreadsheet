@@ -2,6 +2,7 @@ package spreadsheet;
 
 import spreadsheet.api.CellLocation;
 import spreadsheet.api.SpreadsheetInterface;
+import spreadsheet.api.value.LoopValue;
 import spreadsheet.api.value.StringValue;
 import spreadsheet.api.value.Value;
 
@@ -35,13 +36,15 @@ public class Spreadsheet implements SpreadsheetInterface {
     // why can't we use a for loop???
     public void recompute(){
 
+
      Iterator<Cell> it = needtoberecomputed.iterator();
+
         while (it.hasNext()){
             Cell cell = it.next();
 
-            String expr = cell.getExpression();
-            cell.setValue(new StringValue(expr));
-            //recomputeCell(cell);
+            //String expr = cell.getExpression();
+            //cell.setValue(new StringValue(expr));
+            recomputeCell(cell);
 
             it.remove();
         }
@@ -58,20 +61,53 @@ public class Spreadsheet implements SpreadsheetInterface {
 
     private void recomputeCell(Cell c){
         LinkedHashSet<Cell> cellsSeen = new LinkedHashSet<Cell>();
-        cellsSeen.add(c);
         checkLoops(c,cellsSeen);
+
+        // if code reaches here it means a loop was not detected
+        c.setValue(new StringValue(c.getExpression()));
     }
 
     private void checkLoops(Cell c, LinkedHashSet<Cell> cellsSeen){
+        if (cellsSeen.contains(c)){
+            markAsLoop(c,cellsSeen);
+            return;
+        }
+        else{
+            cellsSeen.add(c);
 
+            Iterator<Cell> it = c.iobservethese.iterator();
+            while (it.hasNext()){
+                Cell depcell = it.next();
+                checkLoops(depcell, cellsSeen);
+            }
+
+            cellsSeen.remove(c);
+        }
     }
 
     private void markAsLoop(Cell startcell, LinkedHashSet<Cell> cells){
+        Iterator<Cell> it = cells.iterator();
+        while (it.hasNext()){
+            Cell seencell = it.next();
+            needtoberecomputed.remove(seencell);
+        }
+
+        LinkedList<Cell> list = new LinkedList<Cell>(cells);
+        Iterator<Cell> itr = list.descendingIterator();
+
+        while (itr.hasNext()){
+            Cell loopcell = itr.next();
+
+            if (loopcell.equals(startcell)){
+                loopcell.setValue(LoopValue.INSTANCE);
+                break;
+            }
+
+            loopcell.setValue(LoopValue.INSTANCE);
+        }
+
 
     }
-
-
-
 
 
     public String getExpression(CellLocation location){
@@ -100,6 +136,10 @@ public class Spreadsheet implements SpreadsheetInterface {
 
     public Cell getCell(CellLocation cellLoc){
         return cellswithexpressionsset.get(cellLoc);
+    }
+
+    public void addNewCellToHashMap(CellLocation cellLoc){
+        cellswithexpressionsset.put(cellLoc, new Cell(this,cellLoc));
     }
 
 }

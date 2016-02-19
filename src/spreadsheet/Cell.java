@@ -59,22 +59,27 @@ public class Cell implements Observer<Cell>, Subject {
         // there was a bug when i was making a newCell everytime i had a cell location, instead of
         // getting the corresponding cell from the spreadsheet hashmap of cells with expressions set
 
+
         Set<CellLocation> newiobservetheselocs = ExpressionUtils.getReferencedLocations(expression);
         for (CellLocation cl : newiobservetheselocs){
             Cell correspondingCell = spreadsheet.getCell(cl);
 
-            iobservethese.add(correspondingCell); // remember new dependent cells
-            //System.out.println("Cell " + this.cell_location + " is now observing " + "Cell " + newcell.cell_location);
-            //System.out.println(this.cell_location + " is now observing " + this.iobservethese.size() + " cells");
-            //System.out.println();
+            if (!correspondingCell.equals(null)) {
+                iobservethese.add(correspondingCell); // remember new dependent cells
 
-            correspondingCell.theseobserveme.add(this); // subscribe to new cells
-            //System.out.println("Cell " + newcell.cell_location + " is now being observed by " + "Cell " +
-            //                                                                                this.cell_location);
-            //System.out.println(newcell.cell_location + " is now being observed by " + newcell.theseobserveme.size());
-            //System.out.println();
+                correspondingCell.theseobserveme.add(this); // subscribe to new cells
+            }
+
+            else{
+                spreadsheet.addNewCellToHashMap(cl);
+
+                iobservethese.add(correspondingCell); // remember new dependent cells
+
+                correspondingCell.theseobserveme.add(this); // subscribe to new cells
+            }
 
         }
+
 
         //System.out.println("Number of observers of " + this.cell_location +
         //                                             " to be updated is: " + theseobserveme.size());

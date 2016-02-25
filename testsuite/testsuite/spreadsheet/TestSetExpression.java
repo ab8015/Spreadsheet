@@ -46,6 +46,7 @@ public class TestSetExpression {
         spreadsheet.recompute();
 
         assertIsInvalidValue(spreadsheet.getValue(a1), "=a2");
+        assertIsLoopValue(spreadsheet.getValue(a2));
         assertIsLoopValue(spreadsheet.getValue(b1));
         assertIsLoopValue(spreadsheet.getValue(c1));
         assertIsLoopValue(spreadsheet.getValue(d1));

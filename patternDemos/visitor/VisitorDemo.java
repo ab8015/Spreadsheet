@@ -61,6 +61,7 @@ public class VisitorDemo {
             public void visitInvalid(String expression) {
                 System.out.println("Its an invalid string");
             }
+
         });
     }
 }

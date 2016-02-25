@@ -8,7 +8,9 @@ import spreadsheet.api.value.InvalidValue;
 import spreadsheet.api.value.StringValue;
 import spreadsheet.api.value.Value;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -23,6 +25,7 @@ public class Cell implements Observer<Cell>, Subject {
     final CellLocation cell_location;
     String expression;
     Value value;
+    Double realvalue;
     LinkedHashSet<Cell> iobservethese = new LinkedHashSet<Cell>();
     LinkedHashSet<Observer<Cell>> theseobserveme = new LinkedHashSet<Observer<Cell>>();
 
@@ -37,11 +40,13 @@ public class Cell implements Observer<Cell>, Subject {
         return expression;
     }
 
+
     public Value getValue(){
         return value;
     }
 
     public void setExpression(String expression){
+
 
         // 1
         // unsubscribe from the cells it was depending on
@@ -58,32 +63,32 @@ public class Cell implements Observer<Cell>, Subject {
         //3 subscribing to new cells in the expression
         // there was a bug when i was making a newCell everytime i had a cell location, instead of
         // getting the corresponding cell from the spreadsheet hashmap of cells with expressions set
-
-
         Set<CellLocation> newiobservetheselocs = ExpressionUtils.getReferencedLocations(expression);
         for (CellLocation cl : newiobservetheselocs){
-            Cell correspondingCell = spreadsheet.getCell(cl);
+            Cell correspondingCell;
 
-            if (!correspondingCell.equals(null)) {
-                iobservethese.add(correspondingCell); // remember new dependent cells
-
-                correspondingCell.theseobserveme.add(this); // subscribe to new cells
+            if (spreadsheet.getCell(cl) != null) {
+                correspondingCell = spreadsheet.getCell(cl);
             }
 
-            else{
-                spreadsheet.addNewCellToHashMap(cl);
-
-                iobservethese.add(correspondingCell); // remember new dependent cells
-
-                correspondingCell.theseobserveme.add(this); // subscribe to new cells
+            else {
+                correspondingCell = new Cell(spreadsheet, cl); // here a new
+                // cell is being created with default string value equal to
+                // expression and its expression is equal to the cell_location
+                // the expression is used by computeValue in expressionUtils
+                // to get the correct value
+                spreadsheet.addNewCellToHashMap(cl,correspondingCell);
             }
+
+            // what happens when adding to a cell whose expression in the
+            // spreadsheet has not yet been set
+
+            iobservethese.add(correspondingCell); // remember new dependent cells
+
+            correspondingCell.theseobserveme.add(this); // subscribe to new cells
 
         }
 
-
-        //System.out.println("Number of observers of " + this.cell_location +
-        //                                             " to be updated is: " + theseobserveme.size());
-        System.out.println();
         //4 inform all of the observers that this has changed
         // here 'inform' means for all the observers of the cell (and also their observers), update method is invoked
         this.notifyObservers();
@@ -100,32 +105,29 @@ public class Cell implements Observer<Cell>, Subject {
     }
 
     public boolean needsToBeRecomputed(){
-        return spreadsheet.needsToBeRecomputedSet(this);
+        return spreadsheet.needsToBeRecomputedCheck(this);
+
     }
 
     private void removeObserver(Observer<Cell> observer){
         theseobserveme.remove(observer);
     }
 
-    // remember cell location is a class which contains a
-    // string field representing its representation
-    private Cell convertLocationToCell(CellLocation cellLoc){
-        return new Cell(spreadsheet,cellLoc); // it will make a new cell with a string
-        // by default its expression is the representation of cellLoc
-        // and its value is a string value depending on its expression
+    public boolean allPublishersHaveBeenRecomputed(){
+        for (Cell publishercell: iobservethese){
+            if (!spreadsheet.toBeRemoved.contains(publishercell)){
+                return false;
+            }
+        }
+        return true;
     }
-
     // observer method override
     //sets the value of this cell and all it's observers to invalid
     // i wonder why it needs to take a cell as an argument?
     @Override
     public void update(Cell changed){
-
             this.addToNeedtoBeRecomputed();
             this.setValue(new InvalidValue(expression));
-            //System.out.println("Cell" + this.cell_location +
-            //                            "with expression: " + this.expression + "was made invalid");
-            //System.out.println();
             this.notifyObservers();
 
     }
@@ -134,9 +136,13 @@ public class Cell implements Observer<Cell>, Subject {
     @Override
     public void notifyObservers(){
         for (Observer<Cell> observer : theseobserveme) {
-            observer.update(this);
-        }
-    }
+            Cell observercell = (Cell) observer;
 
+            if (!observercell.needsToBeRecomputed()){
+                observercell.update(this);
+            }
+        }
+
+    }
 
 }

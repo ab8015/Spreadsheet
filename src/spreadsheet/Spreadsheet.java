@@ -1,10 +1,9 @@
 package spreadsheet;
 
 import spreadsheet.api.CellLocation;
+import spreadsheet.api.ExpressionUtils;
 import spreadsheet.api.SpreadsheetInterface;
-import spreadsheet.api.value.LoopValue;
-import spreadsheet.api.value.StringValue;
-import spreadsheet.api.value.Value;
+import spreadsheet.api.value.*;
 
 import java.util.*;
 
@@ -12,101 +11,177 @@ public class Spreadsheet implements SpreadsheetInterface {
 
     private HashMap<CellLocation,Cell>  cellswithexpressionsset = new HashMap<CellLocation,Cell>();
     private Set<Cell> needtoberecomputed = new HashSet<Cell>();
+    LinkedList<Cell> toBeRemoved = new LinkedList<Cell>();
 
 
-    // here containsKey uses deep equality checking if the fields(the string representation) of the locations
-    // are the same, the strings slso being compared with deep equality?? i think so.
-    // don't need if else test really
-    // everytime an expression is set the celllocation with a new Cell of type StringValue is added to the hashmap
-    // if that celllocation is already in the hashmap, then it's setExpression method is called
     public void setExpression(CellLocation location, String expression){
         if (!cellswithexpressionsset.containsKey(location)) {
             Cell cell = new Cell(this, location); // by default the value is a string value
             cell.setExpression(expression); // but then the cells setExpression method changes it to an invalid value
-            //cell.setValue(new StringValue(expression));
             cellswithexpressionsset.put(location,cell);
         }
+
         else{
             cellswithexpressionsset.get(location).setExpression(expression);
-            //cells.get(location).value=new StringValue(expression);
         }
     }
 
 
-    // why can't we use a for loop???
     public void recompute(){
+     Iterator<Cell> itneedtoberecomputed = needtoberecomputed.iterator();
 
-
-     Iterator<Cell> it = needtoberecomputed.iterator();
-
-        while (it.hasNext()){
-            Cell cell = it.next();
-
-            //String expr = cell.getExpression();
-            //cell.setValue(new StringValue(expr));
+        while (itneedtoberecomputed.hasNext()){
+            Cell cell = itneedtoberecomputed.next();
             recomputeCell(cell);
 
-            it.remove();
         }
 
-     // this doesn't work because of the way the list is set, don't fully understand why..
-     /*
-     for (Cell cell : needtoberecomputed){
-         String expr = cell.getExpression();
-         cell.setValue(new StringValue(expr));
-         needtoberecomputed.remove(cell);
-     }
-     */
+     Iterator<Cell> ittoBeRemoved = toBeRemoved.iterator();
+        while (ittoBeRemoved.hasNext()){
+            Cell cellToBeRemoved = ittoBeRemoved.next();
+
+            needtoberecomputed.remove(cellToBeRemoved);
+
+        }
+
+        toBeRemoved.clear();
     }
 
     private void recomputeCell(Cell c){
-        LinkedHashSet<Cell> cellsSeen = new LinkedHashSet<Cell>();
-        checkLoops(c,cellsSeen);
 
-        // if code reaches here it means a loop was not detected
-        c.setValue(new StringValue(c.getExpression()));
+        LinkedList<Cell> seencells = new LinkedList<Cell>();
+        checkLoops(c,seencells);
+
+        //System.out.println("Cell at location: "  + c.cell_location + "
+        // needs " +
+        //        "to be removed is " + toBeRemoved.contains(c) );
+
+        if (!toBeRemoved.contains(c)) {
+            LinkedList<Cell> tobecomputedinorder = new LinkedList<Cell>();
+            tobecomputedinorder.add(c);
+
+            while (!tobecomputedinorder.isEmpty()){
+
+                Cell currentcell = tobecomputedinorder.getFirst();
+
+                for (Cell publishercell : currentcell.iobservethese){
+
+                    if (!toBeRemoved.contains(publishercell)){
+                        tobecomputedinorder.addFirst(publishercell);
+                    }
+                }
+                // publisher cell is added to tobecomputedinorder
+                // and then we will get the firstcell of tobecomputedinorder,
+                // calculate it's value and take it out of toBeremoved, so in
+                // this way toBeRemoved takes care of whether the cell needs
+                // to be recomputed or not, remember we can't use
+                // needstoberecomputed because the cells which have been
+                // computed can't be taken out of needtoberecomputed
+                // directly, so they will still be in needtoberecomputed
+
+                Cell firstcell = tobecomputedinorder.getFirst();
+                if (firstcell.allPublishersHaveBeenRecomputed()){
+                    calculateCellValue(firstcell); // even if it has already
+                    // been computed before(i.e. not in need to be recomputed),
+                    // it will be computed again.
+
+                    toBeRemoved.add(firstcell);
+                    tobecomputedinorder.remove(firstcell);
+                }
+            }
+
+        }
     }
 
-    private void checkLoops(Cell c, LinkedHashSet<Cell> cellsSeen){
-        if (cellsSeen.contains(c)){
-            markAsLoop(c,cellsSeen);
+    private void calculateCellValue(Cell cell){
+        cell.setValue(ExpressionUtils.computeValue(cell.getExpression(),
+                generateMapforDependents(cell)) );
+    }
+
+
+    private Map<CellLocation, Double> generateMapforDependents(Cell cell){
+        Map <CellLocation,Double> dependentcellmap = new
+                HashMap<CellLocation,Double>();
+
+        for (Cell publishercell : cell.iobservethese){
+
+            publishercell.getValue().visit(new ValueVisitor(){
+
+                @Override
+                public void visitString(String expression) {
+                    //publishercell.realvalue=null;
+                }
+
+                @Override
+                public void visitLoop() {
+                    //publishercell.realvalue=null;
+                    System.out.println("Its a LOOP. " +
+                            "Shouldn't come here");
+                }
+
+                @Override
+                public void visitDouble(double value) {
+                    publishercell.realvalue=value;
+
+                    dependentcellmap.put(publishercell.cell_location,
+                            publishercell.realvalue);
+                }
+
+                @Override
+                public void visitInvalid(String expression) {
+                    //publishercell.realvalue=null;
+                    System.out.println("Its an invalid string" +
+                            "Shouldnt come here");
+                }
+
+            });
+
+
+        }
+
+        return dependentcellmap;
+    }
+
+
+    private void checkLoops(Cell cell, LinkedList<Cell> seencells){
+
+        // recursively calls itself so depth first search,
+
+        if (seencells.contains(cell)){
+            markAsLoop(cell, seencells);
             return;
         }
-        else{
-            cellsSeen.add(c);
 
-            Iterator<Cell> it = c.iobservethese.iterator();
-            while (it.hasNext()){
-                Cell depcell = it.next();
-                checkLoops(depcell, cellsSeen);
+        else {
+            seencells.add(cell);
+
+            Iterator<Cell> itiObserveThese = cell.iobservethese.iterator();
+            while (itiObserveThese.hasNext()){
+                Cell dependentcell = itiObserveThese.next();
+                checkLoops(dependentcell,seencells);
             }
-
-            cellsSeen.remove(c);
+            seencells.remove(cell);
         }
     }
 
-    private void markAsLoop(Cell startcell, LinkedHashSet<Cell> cells){
-        Iterator<Cell> it = cells.iterator();
-        while (it.hasNext()){
-            Cell seencell = it.next();
-            needtoberecomputed.remove(seencell);
-        }
+    private void markAsLoop(Cell startcell, LinkedList<Cell> seencells){
 
-        LinkedList<Cell> list = new LinkedList<Cell>(cells);
-        Iterator<Cell> itr = list.descendingIterator();
+        boolean reachedstartcell = false;
 
-        while (itr.hasNext()){
-            Cell loopcell = itr.next();
+        Iterator<Cell> itSeenCells = seencells.iterator();
+        while (itSeenCells.hasNext()){
+            Cell currentcell = itSeenCells.next();
 
-            if (loopcell.equals(startcell)){
-                loopcell.setValue(LoopValue.INSTANCE);
-                break;
+            if (currentcell == startcell){
+                reachedstartcell = true;
             }
 
-            loopcell.setValue(LoopValue.INSTANCE);
+            if (reachedstartcell){
+                currentcell.setValue(LoopValue.INSTANCE);
+            }
+
+            toBeRemoved.add(currentcell);
         }
-
-
     }
 
 
@@ -130,7 +205,7 @@ public class Spreadsheet implements SpreadsheetInterface {
         needtoberecomputed.add(cell);
     }
 
-    public boolean needsToBeRecomputedSet(Cell cell){
+    public boolean needsToBeRecomputedCheck(Cell cell){
         return needtoberecomputed.contains(cell);
     }
 
@@ -138,8 +213,8 @@ public class Spreadsheet implements SpreadsheetInterface {
         return cellswithexpressionsset.get(cellLoc);
     }
 
-    public void addNewCellToHashMap(CellLocation cellLoc){
-        cellswithexpressionsset.put(cellLoc, new Cell(this,cellLoc));
+    public void addNewCellToHashMap(CellLocation cellLoc, Cell cell){
+        cellswithexpressionsset.put(cellLoc, cell);
     }
 
 }

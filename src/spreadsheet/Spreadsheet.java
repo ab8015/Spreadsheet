@@ -105,9 +105,9 @@ public class Spreadsheet implements SpreadsheetInterface {
 
         for (Cell publishercell : cell.iobservethese){
 
-            publishercell.getValue().visit(new ValueVisitor(){
+            Double[] outervaluetoset = new Double[1];
 
-                Double valuetoset;
+            publishercell.getValue().visit(new ValueVisitor(){
 
                 @Override
                 public void visitString(String expression) {
@@ -123,10 +123,9 @@ public class Spreadsheet implements SpreadsheetInterface {
 
                 @Override
                 public void visitDouble(double value) {
-                    valuetoset = value;
 
-                    dependentcellmap.put(publishercell.cell_location,
-                            valuetoset);
+                    outervaluetoset[0]=value;
+
                 }
 
                 @Override
@@ -138,7 +137,8 @@ public class Spreadsheet implements SpreadsheetInterface {
 
             });
 
-
+            dependentcellmap.put(publishercell.cell_location,
+                    outervaluetoset[0]);
         }
 
         return dependentcellmap;

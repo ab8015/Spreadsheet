@@ -94,7 +94,7 @@ public class Spreadsheet implements SpreadsheetInterface {
 
 
     private Map<CellLocation, Double> generateMapforDependents(Cell cell) {
-        final Map <CellLocation,Double> dependentcellmap = new
+        Map <CellLocation,Double> dependentcellmap = new
                 HashMap<CellLocation,Double>();
 
         for (Cell publishercell : cell.iobservethese){

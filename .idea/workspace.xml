@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a82d8fe9-5f8e-44cc-b64a-180e2e059a3c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/DoubleValue.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/DoubleValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/InvalidValue.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/InvalidValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/LoopValue.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/LoopValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/StringValue.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/StringValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/ValueVisitor.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/ValueVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testsuite/testsuite/spreadsheet/Util.java" afterPath="$PROJECT_DIR$/testsuite/testsuite/spreadsheet/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" afterPath="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" />
     </list>
     <ignored path="java_spreadsheet_ab8015.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,18 +25,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Spreadsheet.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Spreadsheet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.2413793">
+              <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#412#418#0" expanded="true" />
                 <element signature="e#471#477#0" expanded="true" />
                 <element signature="e#1434#1440#0" expanded="true" />
                 <element signature="e#1745#1751#0" expanded="true" />
-                <element signature="e#3579#3600#0" expanded="true" />
+                <element signature="e#3573#3594#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,14 +62,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Util.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29220778">
+            <state vertical-scroll-proportion="0.0">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -94,8 +88,8 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <element signature="e#323#324#0" expanded="true" />
-                <element signature="e#356#357#0" expanded="true" />
+                <element signature="e#402#403#0" expanded="false" />
+                <element signature="e#432#433#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -105,9 +99,16 @@
         <entry file="file://$PROJECT_DIR$/src/spreadsheet/Cell.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#834#840#0" expanded="false" />
+                <element signature="e#912#928#0" expanded="false" />
+                <element signature="e#1229#1230#0" expanded="false" />
+                <element signature="e#1262#1263#0" expanded="false" />
+                <element signature="e#1293#1294#0" expanded="false" />
+                <element signature="e#1321#1322#0" expanded="false" />
+                <element signature="e#3459#3460#0" expanded="false" />
+                <element signature="e#3491#3492#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -118,7 +119,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#238#239#0" expanded="false" />
+                <element signature="e#282#283#0" expanded="false" />
+                <element signature="e#423#424#0" expanded="false" />
+                <element signature="e#468#469#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -129,8 +135,10 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <element signature="e#549#550#0" expanded="true" />
-                <element signature="e#591#592#0" expanded="true" />
+                <element signature="e#256#257#0" expanded="false" />
+                <element signature="e#286#287#0" expanded="false" />
+                <element signature="e#637#638#0" expanded="false" />
+                <element signature="e#682#683#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -142,8 +150,10 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <element signature="e#383#384#0" expanded="true" />
-                <element signature="e#428#429#0" expanded="true" />
+                <element signature="e#280#281#0" expanded="false" />
+                <element signature="e#324#325#0" expanded="false" />
+                <element signature="e#474#475#0" expanded="false" />
+                <element signature="e#507#508#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -175,7 +185,6 @@
         <option value="$PROJECT_DIR$/support/spreadsheet/gui/SpreadsheetCellRenderer.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/api/ExpressionUtils.java" />
         <option value="$PROJECT_DIR$/src/spreadsheet/ValueHolder.java" />
-        <option value="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/Value.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/ValueVisitor.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/StringValue.java" />
@@ -183,6 +192,7 @@
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/InvalidValue.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/DoubleValue.java" />
         <option value="$PROJECT_DIR$/testsuite/testsuite/spreadsheet/Util.java" />
+        <option value="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" />
       </list>
     </option>
   </component>
@@ -194,8 +204,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="34" />
-    <option name="y" value="70" />
+    <option name="x" value="47" />
+    <option name="y" value="22" />
     <option name="width" value="1173" />
     <option name="height" value="736" />
   </component>
@@ -392,10 +402,10 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/apple/Documents/java_spreadsheet_ab8015/src/spreadsheet/Spreadsheet.java" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.Unnamed">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -714,12 +724,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unnamed - 2016.02.25 at 18h 58m 47s.xml">
-      <configuration name="Unnamed" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Unnamed - 2016.02.25 at 19h 02m 27s.xml">
-      <configuration name="Unnamed" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Unnamed - 2016.02.25 at 19h 50m 08s.xml">
       <configuration name="Unnamed" configurationId="JUnit" />
     </history-entry>
@@ -744,9 +748,15 @@
     <history-entry file="Unnamed - 2016.02.25 at 21h 40m 40s.xml">
       <configuration name="Unnamed" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Unnamed - 2016.02.25 at 22h 38m 53s.xml">
+      <configuration name="Unnamed" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Unnamed - 2016.02.25 at 22h 40m 37s.xml">
+      <configuration name="Unnamed" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="34" y="70" width="1173" height="736" extended-state="0" />
+    <frame x="47" y="22" width="1173" height="736" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -795,7 +805,7 @@
             <element signature="e#471#477#0" expanded="true" />
             <element signature="e#1434#1440#0" expanded="true" />
             <element signature="e#1745#1751#0" expanded="true" />
-            <element signature="e#3579#3600#0" expanded="true" />
+            <element signature="e#3573#3594#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -833,7 +843,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -859,7 +869,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#834#840#0" expanded="false" />
+            <element signature="e#912#928#0" expanded="false" />
+            <element signature="e#1229#1230#0" expanded="false" />
+            <element signature="e#1262#1263#0" expanded="false" />
+            <element signature="e#1293#1294#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#3459#3460#0" expanded="false" />
+            <element signature="e#3491#3492#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -891,7 +908,7 @@
             <element signature="e#471#477#0" expanded="true" />
             <element signature="e#1434#1440#0" expanded="true" />
             <element signature="e#1745#1751#0" expanded="true" />
-            <element signature="e#3579#3600#0" expanded="true" />
+            <element signature="e#3573#3594#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -919,7 +936,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -945,7 +962,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#834#840#0" expanded="false" />
+            <element signature="e#912#928#0" expanded="false" />
+            <element signature="e#1229#1230#0" expanded="false" />
+            <element signature="e#1262#1263#0" expanded="false" />
+            <element signature="e#1293#1294#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#3459#3460#0" expanded="false" />
+            <element signature="e#3491#3492#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -977,7 +1001,7 @@
             <element signature="e#471#477#0" expanded="true" />
             <element signature="e#1434#1440#0" expanded="true" />
             <element signature="e#1745#1751#0" expanded="true" />
-            <element signature="e#3579#3600#0" expanded="true" />
+            <element signature="e#3573#3594#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -995,7 +1019,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1021,7 +1045,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#834#840#0" expanded="false" />
+            <element signature="e#912#928#0" expanded="false" />
+            <element signature="e#1229#1230#0" expanded="false" />
+            <element signature="e#1262#1263#0" expanded="false" />
+            <element signature="e#1293#1294#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#3459#3460#0" expanded="false" />
+            <element signature="e#3491#3492#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1146,21 +1177,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/support/spreadsheet/api/value/ValueVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/support/spreadsheet/api/value/StringValue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#428#429#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="false" />
+            <element signature="e#324#325#0" expanded="false" />
+            <element signature="e#474#475#0" expanded="false" />
+            <element signature="e#507#508#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1170,8 +1195,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="e#323#324#0" expanded="true" />
-            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#402#403#0" expanded="false" />
+            <element signature="e#432#433#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1180,7 +1205,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#238#239#0" expanded="false" />
+            <element signature="e#282#283#0" expanded="false" />
+            <element signature="e#423#424#0" expanded="false" />
+            <element signature="e#468#469#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1189,23 +1219,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#591#592#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#412#418#0" expanded="true" />
-            <element signature="e#471#477#0" expanded="true" />
-            <element signature="e#1434#1440#0" expanded="true" />
-            <element signature="e#1745#1751#0" expanded="true" />
-            <element signature="e#3579#3600#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="false" />
+            <element signature="e#286#287#0" expanded="false" />
+            <element signature="e#637#638#0" expanded="false" />
+            <element signature="e#682#683#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1218,12 +1235,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/spreadsheet/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#834#840#0" expanded="false" />
+            <element signature="e#912#928#0" expanded="false" />
+            <element signature="e#1229#1230#0" expanded="false" />
+            <element signature="e#1262#1263#0" expanded="false" />
+            <element signature="e#1293#1294#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#3459#3460#0" expanded="false" />
+            <element signature="e#3491#3492#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1231,17 +1263,30 @@
     <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/Util.java">
+    <entry file="file://$PROJECT_DIR$/support/spreadsheet/api/value/ValueVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29220778">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2413793">
+          <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#412#418#0" expanded="true" />
+            <element signature="e#471#477#0" expanded="true" />
+            <element signature="e#1434#1440#0" expanded="true" />
+            <element signature="e#1745#1751#0" expanded="true" />
+            <element signature="e#3573#3594#0" expanded="true" />
           </folding>
         </state>
       </provider>

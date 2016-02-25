@@ -107,6 +107,8 @@ public class Spreadsheet implements SpreadsheetInterface {
 
             publishercell.getValue().visit(new ValueVisitor(){
 
+                Double valuetoset;
+
                 @Override
                 public void visitString(String expression) {
                     //publishercell.realvalue=null;
@@ -121,10 +123,10 @@ public class Spreadsheet implements SpreadsheetInterface {
 
                 @Override
                 public void visitDouble(double value) {
-                    publishercell.realvalue=value;
+                    valuetoset = value;
 
                     dependentcellmap.put(publishercell.cell_location,
-                            publishercell.realvalue);
+                            valuetoset);
                 }
 
                 @Override

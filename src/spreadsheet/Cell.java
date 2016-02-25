@@ -25,7 +25,6 @@ public class Cell implements Observer<Cell>, Subject {
     final CellLocation cell_location;
     String expression;
     Value value;
-    Double realvalue;
     LinkedHashSet<Cell> iobservethese = new LinkedHashSet<Cell>();
     LinkedHashSet<Observer<Cell>> theseobserveme = new LinkedHashSet<Observer<Cell>>();
 

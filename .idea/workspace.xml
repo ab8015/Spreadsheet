@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a82d8fe9-5f8e-44cc-b64a-180e2e059a3c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java" afterPath="$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spreadsheet/Cell.java" afterPath="$PROJECT_DIR$/src/spreadsheet/Cell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" afterPath="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" />
     </list>
     <ignored path="java_spreadsheet_ab8015.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Spreadsheet.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Spreadsheet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7777777">
-              <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.32717678">
+              <caret line="128" column="38" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#412#418#0" expanded="true" />
@@ -42,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestSetExpression.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestSetExpression.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4353562">
-              <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+            <state vertical-scroll-proportion="3.1851852">
+              <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -116,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/src/spreadsheet/Cell.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
+              <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -149,9 +149,9 @@
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/ValueVisitor.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/DoubleValue.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/InvalidValue.java" />
-        <option value="$PROJECT_DIR$/src/spreadsheet/Cell.java" />
-        <option value="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" />
         <option value="$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java" />
+        <option value="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" />
+        <option value="$PROJECT_DIR$/src/spreadsheet/Cell.java" />
       </list>
     </option>
   </component>
@@ -688,6 +688,9 @@
     <history-entry file="Unnamed - 2016.02.25 at 18h 40m 47s.xml">
       <configuration name="Unnamed" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Unnamed - 2016.02.25 at 18h 44m 17s.xml">
+      <configuration name="Unnamed" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="43" y="29" width="1173" height="704" extended-state="0" />
@@ -1118,18 +1121,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.1851852">
+          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/spreadsheet/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7777777">
-          <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.32717678">
+          <caret line="128" column="38" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#412#418#0" expanded="true" />
@@ -1138,14 +1149,6 @@
             <element signature="e#1920#1926#0" expanded="true" />
             <element signature="e#3747#3768#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4353562">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>

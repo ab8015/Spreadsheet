@@ -3,7 +3,6 @@ package testsuite.spreadsheet;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import spreadsheet.ValueHolder;
 import spreadsheet.api.value.Value;
 import spreadsheet.api.value.ValueVisitor;
 

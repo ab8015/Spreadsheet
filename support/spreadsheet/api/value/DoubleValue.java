@@ -1,7 +1,5 @@
 package spreadsheet.api.value;
 
-import spreadsheet.ValueHolder;
-
 /**
  * A value for spreadsheet cells that represented an expression that evaluated
  * to a double.

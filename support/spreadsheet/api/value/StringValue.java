@@ -1,7 +1,5 @@
 package spreadsheet.api.value;
 
-import spreadsheet.ValueHolder;
-
 /**
  * A value for a spreadsheet cell that contains an uninterpreted String.
  */

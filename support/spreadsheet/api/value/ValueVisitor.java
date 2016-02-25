@@ -1,7 +1,5 @@
 package spreadsheet.api.value;
 
-import spreadsheet.ValueHolder;
-
 /**
  * Visitor interface for values.
  */

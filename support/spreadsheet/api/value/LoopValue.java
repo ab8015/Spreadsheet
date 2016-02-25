@@ -1,7 +1,5 @@
 package spreadsheet.api.value;
 
-import spreadsheet.ValueHolder;
-
 /**
  * A value for spreadsheet cells that are part of a loop.
  */

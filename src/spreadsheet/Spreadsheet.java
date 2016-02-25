@@ -36,13 +36,7 @@ public class Spreadsheet implements SpreadsheetInterface {
 
         }
 
-     Iterator<Cell> ittoBeRemoved = toBeRemoved.iterator();
-        while (ittoBeRemoved.hasNext()){
-            Cell cellToBeRemoved = ittoBeRemoved.next();
-
-            needtoberecomputed.remove(cellToBeRemoved);
-
-        }
+        needtoberecomputed.removeAll(toBeRemoved);
 
         toBeRemoved.clear();
     }
@@ -102,8 +96,6 @@ public class Spreadsheet implements SpreadsheetInterface {
     private Map<CellLocation, Double> generateMapforDependents(Cell cell) {
         final Map <CellLocation,Double> dependentcellmap = new
                 HashMap<CellLocation,Double>();
-
-        ValueHolder vh = new ValueHolder(0d);
 
         for (Cell publishercell : cell.iobservethese){
 

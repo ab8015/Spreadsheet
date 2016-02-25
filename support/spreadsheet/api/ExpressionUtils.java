@@ -82,6 +82,9 @@ public final class ExpressionUtils {
         } catch (MissingValueException e) {
             value = new StringValue(expression);
         }
+        catch (NullPointerException e){
+            value = new StringValue(expression);
+        }
 
         return value;
     }

@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a82d8fe9-5f8e-44cc-b64a-180e2e059a3c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/spreadsheet/ValueHolder.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/patternDemos/visitor/VisitorDemo.java" afterPath="$PROJECT_DIR$/patternDemos/visitor/VisitorDemo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" afterPath="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/DoubleValue.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/DoubleValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/InvalidValue.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/InvalidValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/LoopValue.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/LoopValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/StringValue.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/StringValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/Value.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/Value.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/value/ValueVisitor.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/value/ValueVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/gui/SpreadsheetCellRenderer.java" afterPath="$PROJECT_DIR$/support/spreadsheet/gui/SpreadsheetCellRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testsuite/testsuite/spreadsheet/Util.java" afterPath="$PROJECT_DIR$/testsuite/testsuite/spreadsheet/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/spreadsheet/api/ExpressionUtils.java" afterPath="$PROJECT_DIR$/support/spreadsheet/api/ExpressionUtils.java" />
     </list>
     <ignored path="java_spreadsheet_ab8015.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,16 +31,26 @@
       <file leaf-file-name="Spreadsheet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70223325">
-              <caret line="140" column="45" selection-start-line="140" selection-start-column="45" selection-end-line="140" selection-end-column="45" />
+            <state vertical-scroll-proportion="1.5862069">
+              <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#412#418#0" expanded="true" />
                 <element signature="e#471#477#0" expanded="true" />
-                <element signature="e#1609#1615#0" expanded="true" />
-                <element signature="e#1920#1926#0" expanded="true" />
-                <element signature="e#3754#3775#0" expanded="true" />
+                <element signature="e#1434#1440#0" expanded="true" />
+                <element signature="e#1745#1751#0" expanded="true" />
+                <element signature="e#3579#3600#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestSetExpression.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,8 +58,8 @@
       <file leaf-file-name="ExpressionUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/support/spreadsheet/api/ExpressionUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+            <state vertical-scroll-proportion="-5.5555553">
+              <caret line="71" column="74" selection-start-line="71" selection-start-column="74" selection-end-line="71" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -115,21 +118,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InvalidValue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/support/spreadsheet/api/value/InvalidValue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-              <folding>
-                <element signature="e#271#272#0" expanded="false" />
-                <element signature="e#315#316#0" expanded="false" />
-                <element signature="e#456#457#0" expanded="false" />
-                <element signature="e#501#502#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LoopValue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/support/spreadsheet/api/value/LoopValue.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -158,16 +146,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Value.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/support/spreadsheet/api/value/Value.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -190,8 +168,6 @@
       <list>
         <option value="$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java" />
         <option value="$PROJECT_DIR$/src/spreadsheet/Cell.java" />
-        <option value="$PROJECT_DIR$/src/spreadsheet/ValueHolder.java" />
-        <option value="$PROJECT_DIR$/support/spreadsheet/api/ExpressionUtils.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/ValueVisitor.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/Value.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/api/value/InvalidValue.java" />
@@ -201,6 +177,8 @@
         <option value="$PROJECT_DIR$/testsuite/testsuite/spreadsheet/Util.java" />
         <option value="$PROJECT_DIR$/patternDemos/visitor/VisitorDemo.java" />
         <option value="$PROJECT_DIR$/support/spreadsheet/gui/SpreadsheetCellRenderer.java" />
+        <option value="$PROJECT_DIR$/support/spreadsheet/api/ExpressionUtils.java" />
+        <option value="$PROJECT_DIR$/src/spreadsheet/ValueHolder.java" />
         <option value="$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java" />
       </list>
     </option>
@@ -213,10 +191,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="75" />
-    <option name="y" value="65" />
+    <option name="x" value="46" />
+    <option name="y" value="316" />
     <option name="width" value="1173" />
-    <option name="height" value="704" />
+    <option name="height" value="736" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -733,9 +711,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unnamed - 2016.02.25 at 18h 40m 47s.xml">
-      <configuration name="Unnamed" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Unnamed - 2016.02.25 at 18h 44m 17s.xml">
       <configuration name="Unnamed" configurationId="JUnit" />
     </history-entry>
@@ -763,9 +738,12 @@
     <history-entry file="Unnamed - 2016.02.25 at 21h 18m 26s.xml">
       <configuration name="Unnamed" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Unnamed - 2016.02.25 at 21h 33m 47s.xml">
+      <configuration name="Unnamed" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="65" width="1173" height="704" extended-state="0" />
+    <frame x="46" y="316" width="1173" height="736" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -775,7 +753,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27874017" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26536733" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26257458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -812,9 +790,9 @@
             <element signature="imports" expanded="true" />
             <element signature="e#412#418#0" expanded="true" />
             <element signature="e#471#477#0" expanded="true" />
-            <element signature="e#1609#1615#0" expanded="true" />
-            <element signature="e#1920#1926#0" expanded="true" />
-            <element signature="e#3754#3775#0" expanded="true" />
+            <element signature="e#1434#1440#0" expanded="true" />
+            <element signature="e#1745#1751#0" expanded="true" />
+            <element signature="e#3579#3600#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -906,9 +884,9 @@
             <element signature="imports" expanded="true" />
             <element signature="e#412#418#0" expanded="true" />
             <element signature="e#471#477#0" expanded="true" />
-            <element signature="e#1609#1615#0" expanded="true" />
-            <element signature="e#1920#1926#0" expanded="true" />
-            <element signature="e#3754#3775#0" expanded="true" />
+            <element signature="e#1434#1440#0" expanded="true" />
+            <element signature="e#1745#1751#0" expanded="true" />
+            <element signature="e#3579#3600#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -990,9 +968,9 @@
             <element signature="imports" expanded="true" />
             <element signature="e#412#418#0" expanded="true" />
             <element signature="e#471#477#0" expanded="true" />
-            <element signature="e#1609#1615#0" expanded="true" />
-            <element signature="e#1920#1926#0" expanded="true" />
-            <element signature="e#3754#3775#0" expanded="true" />
+            <element signature="e#1434#1440#0" expanded="true" />
+            <element signature="e#1745#1751#0" expanded="true" />
+            <element signature="e#3579#3600#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1129,33 +1107,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/spreadsheet/ValueHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-          <folding>
-            <element signature="e#143#144#0" expanded="false" />
-            <element signature="e#161#162#0" expanded="false" />
-            <element signature="e#196#197#0" expanded="false" />
-            <element signature="e#219#220#0" expanded="false" />
-            <element signature="e#254#255#0" expanded="false" />
-            <element signature="e#272#273#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/support/spreadsheet/parser/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="580" column="0" selection-start-line="580" selection-start-column="0" selection-end-line="580" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1260,23 +1215,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/support/spreadsheet/api/ExpressionUtils.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5555553">
+          <caret line="71" column="74" selection-start-line="71" selection-start-column="74" selection-end-line="71" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testsuite/testsuite/spreadsheet/TestSetExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/spreadsheet/Spreadsheet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70223325">
-          <caret line="140" column="45" selection-start-line="140" selection-start-column="45" selection-end-line="140" selection-end-column="45" />
+        <state vertical-scroll-proportion="1.5862069">
+          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#412#418#0" expanded="true" />
             <element signature="e#471#477#0" expanded="true" />
-            <element signature="e#1609#1615#0" expanded="true" />
-            <element signature="e#1920#1926#0" expanded="true" />
-            <element signature="e#3754#3775#0" expanded="true" />
+            <element signature="e#1434#1440#0" expanded="true" />
+            <element signature="e#1745#1751#0" expanded="true" />
+            <element signature="e#3579#3600#0" expanded="true" />
           </folding>
         </state>
       </provider>

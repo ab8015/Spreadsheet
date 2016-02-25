@@ -1,11 +1,13 @@
 package spreadsheet.api.value;
 
+import spreadsheet.ValueHolder;
+
 /**
  * Visitor interface for values.
  */
 public interface ValueVisitor {
     
-    public void visitDouble(double value);
+    public void visitDouble(double value, ValueHolder vh);
     
     public void visitLoop();
     

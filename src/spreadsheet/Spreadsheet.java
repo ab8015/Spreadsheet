@@ -103,6 +103,8 @@ public class Spreadsheet implements SpreadsheetInterface {
         Map <CellLocation,Double> dependentcellmap = new
                 HashMap<CellLocation,Double>();
 
+        ValueHolder vh = new ValueHolder(0d);
+
         for (Cell publishercell : cell.iobservethese){
 
             Double[] outervaluetoset = new Double[1];
@@ -122,10 +124,8 @@ public class Spreadsheet implements SpreadsheetInterface {
                 }
 
                 @Override
-                public void visitDouble(double value) {
-
-                    outervaluetoset[0]=value;
-
+                public void visitDouble(double value, ValueHolder vh) {
+                    vh.setValue(value);
                 }
 
                 @Override
@@ -135,10 +135,10 @@ public class Spreadsheet implements SpreadsheetInterface {
                             "Shouldnt come here");
                 }
 
-            });
+            },vh);
 
             dependentcellmap.put(publishercell.cell_location,
-                    outervaluetoset[0]);
+                    vh.getDoubleValue());
         }
 
         return dependentcellmap;

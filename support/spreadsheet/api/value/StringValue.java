@@ -1,5 +1,7 @@
 package spreadsheet.api.value;
 
+import spreadsheet.ValueHolder;
+
 /**
  * A value for a spreadsheet cell that contains an uninterpreted String.
  */
@@ -12,7 +14,7 @@ public final class StringValue implements Value {
     }
 
     @Override
-    public void visit(ValueVisitor visit) {
+    public void visit(ValueVisitor visit, ValueHolder vh) {
         visit.visitString(expression);
     }
 

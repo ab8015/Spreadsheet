@@ -1,5 +1,7 @@
 package spreadsheet.api.value;
 
+import spreadsheet.ValueHolder;
+
 /**
  * A value for spreadsheet cells that are part of a loop.
  */
@@ -11,7 +13,7 @@ public final class LoopValue implements Value {
         // not visible
     }
     @Override
-    public void visit(ValueVisitor visit) {
+    public void visit(ValueVisitor visit, ValueHolder vh) {
         visit.visitLoop();
     }
 

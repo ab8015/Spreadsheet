@@ -1,5 +1,6 @@
 package visitor;
 
+import spreadsheet.ValueHolder;
 import spreadsheet.api.value.DoubleValue;
 import spreadsheet.api.value.LoopValue;
 import spreadsheet.api.value.StringValue;
@@ -53,7 +54,7 @@ public class VisitorDemo {
             }
 
             @Override
-            public void visitDouble(double value) {
+            public void visitDouble(double value, ValueHolder vh) {
                 System.out.println("Its a double.");
             }
 
@@ -62,6 +63,6 @@ public class VisitorDemo {
                 System.out.println("Its an invalid string");
             }
 
-        });
+        }, new ValueHolder(0d));
     }
 }

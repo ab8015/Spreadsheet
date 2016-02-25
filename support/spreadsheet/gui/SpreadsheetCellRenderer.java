@@ -11,6 +11,7 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import spreadsheet.ValueHolder;
 import spreadsheet.api.CellLocation;
 import spreadsheet.api.SpreadsheetInterface;
 import spreadsheet.api.value.Value;
@@ -98,10 +99,10 @@ public class SpreadsheetCellRenderer extends DefaultTableCellRenderer {
                     }
 
                     @Override
-                    public void visitDouble(double value) {
+                    public void visitDouble(double value, ValueHolder vh) {
                         setHorizontalAlignment(JTextField.RIGHT);
                     }
-                });
+                }, new ValueHolder(0d));
             }
 
             if (hasFocus) {

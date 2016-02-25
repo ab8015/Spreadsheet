@@ -1,5 +1,7 @@
 package spreadsheet.api.value;
 
+import spreadsheet.ValueHolder;
+
 /**
  * A value for spreadsheet cells that are currently invalid.
  * 
@@ -13,7 +15,7 @@ public final class InvalidValue implements Value {
     }
 
     @Override
-    public void visit(ValueVisitor visitor) {
+    public void visit(ValueVisitor visitor, ValueHolder vh) {
         visitor.visitInvalid(expression);
     }
 

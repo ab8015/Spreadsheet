@@ -1,7 +1,5 @@
 package spreadsheet.api.value;
 
-import spreadsheet.ValueHolder;
-
 /**
  * Interface representing the values that a particular spreadsheet cell can
  * take.

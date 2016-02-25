@@ -99,10 +99,10 @@ public class SpreadsheetCellRenderer extends DefaultTableCellRenderer {
                     }
 
                     @Override
-                    public void visitDouble(double value, ValueHolder vh) {
+                    public void visitDouble(double value) {
                         setHorizontalAlignment(JTextField.RIGHT);
                     }
-                }, new ValueHolder(0d));
+                });
             }
 
             if (hasFocus) {

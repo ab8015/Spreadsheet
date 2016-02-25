@@ -28,10 +28,10 @@ public class Util {
             }
             
             @Override
-            public void visitDouble(double value, ValueHolder vh) {
+            public void visitDouble(double value) {
                 assertEquals("assertIsString: got Double!", string, value);
             }
-        }, new ValueHolder(0d));
+        });
     }
 
     public static void assertIsDouble(Value value, final double d) {
@@ -53,17 +53,17 @@ public class Util {
             }
             
             @Override
-            public void visitDouble(double value, ValueHolder vh) {
+            public void visitDouble(double value) {
                 assertEquals("assertIsDouble: got Double!", d, value, 0);
             }
-        }, new ValueHolder(0d));
+        });
     }
     
     public static void assertIsLoopValue(Value value) {
         value.visit(new ValueVisitor() {
 
             @Override
-            public void visitDouble(double value, ValueHolder vh) {
+            public void visitDouble(double value) {
                 fail("assertIsLoopValue: got double" + value);
             }
 
@@ -82,7 +82,7 @@ public class Util {
                 fail("assertIsLoopValue: got String" + expression);
 
             }
-        }, new ValueHolder(0d));
+        });
     }
 
     public static void assertIsInvalidValue(Value value,
@@ -90,7 +90,7 @@ public class Util {
         value.visit(new ValueVisitor() {
 
             @Override
-            public void visitDouble(double value, ValueHolder vh) {
+            public void visitDouble(double value) {
                 assertEquals("assertIsInvalidValue got double",
                         expectedInvalidValue, value);
             }
@@ -112,6 +112,6 @@ public class Util {
                 assertEquals("assertIsInvalidValue got String",
                         expectedInvalidValue, expression);
             }
-        }, new ValueHolder(0d));
+        });
     }
 }

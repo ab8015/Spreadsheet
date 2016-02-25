@@ -7,7 +7,7 @@ import spreadsheet.ValueHolder;
  */
 public interface ValueVisitor {
     
-    public void visitDouble(double value, ValueHolder vh);
+    public void visitDouble(double value);
     
     public void visitLoop();
     

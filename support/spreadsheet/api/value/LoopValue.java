@@ -13,7 +13,7 @@ public final class LoopValue implements Value {
         // not visible
     }
     @Override
-    public void visit(ValueVisitor visit, ValueHolder vh) {
+    public void visit(ValueVisitor visit) {
         visit.visitLoop();
     }
 

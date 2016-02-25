@@ -8,6 +8,6 @@ import spreadsheet.ValueHolder;
  */
 public interface Value {
 
-    public void visit(ValueVisitor visitor, ValueHolder vh);
+    public void visit(ValueVisitor visitor);
 
 }

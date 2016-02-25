@@ -54,7 +54,7 @@ public class VisitorDemo {
             }
 
             @Override
-            public void visitDouble(double value, ValueHolder vh) {
+            public void visitDouble(double value) {
                 System.out.println("Its a double.");
             }
 
@@ -63,6 +63,6 @@ public class VisitorDemo {
                 System.out.println("Its an invalid string");
             }
 
-        }, new ValueHolder(0d));
+        });
     }
 }

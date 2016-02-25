@@ -15,7 +15,7 @@ public final class InvalidValue implements Value {
     }
 
     @Override
-    public void visit(ValueVisitor visitor, ValueHolder vh) {
+    public void visit(ValueVisitor visitor) {
         visitor.visitInvalid(expression);
     }
 

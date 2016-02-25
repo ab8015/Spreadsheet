@@ -14,7 +14,7 @@ public final class StringValue implements Value {
     }
 
     @Override
-    public void visit(ValueVisitor visit, ValueHolder vh) {
+    public void visit(ValueVisitor visit) {
         visit.visitString(expression);
     }
 

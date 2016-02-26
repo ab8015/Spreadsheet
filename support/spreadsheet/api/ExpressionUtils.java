@@ -76,20 +76,12 @@ public final class ExpressionUtils {
             return new DoubleValue(new Parser(new StringReader(expression))
                     .compute(values));
         } catch (TokenMgrError e) {
-            System.out.println();
-            System.out.println("Token manager error");
             value = new StringValue(expression);
         } catch (ParseException e) {
-            System.out.println();
-            System.out.println("Parse exception error");
             value = new StringValue(expression);
         } catch (MissingValueException e) {
-            System.out.println();
-            System.out.println("Missing value exception");
             value = new StringValue(expression);
         } catch (NullPointerException e){
-            System.out.println();
-            System.out.println("Null Pointer exception");
             value = new StringValue(expression);
         }
 

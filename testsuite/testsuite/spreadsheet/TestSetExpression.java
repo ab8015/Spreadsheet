@@ -52,4 +52,30 @@ public class TestSetExpression {
         assertIsLoopValue(spreadsheet.getValue(d1));
     }
 
+    @Test
+    public void testSetExpression3() {
+        Spreadsheet spreadsheet = new Spreadsheet();
+        spreadsheet.setExpression(a1, "=a1");
+        spreadsheet.recompute();
+
+        assertIsLoopValue(spreadsheet.getValue(a1));
+    }
+
+    @Test
+    public void testsetExpression4(){
+        Spreadsheet spreadsheet = new Spreadsheet();
+        spreadsheet.setExpression(a1, "=b1+c1");
+        spreadsheet.setExpression(b1, "=d1+a2");
+        spreadsheet.setExpression(c1, "=12");
+        spreadsheet.setExpression(d1, "=a2*3");
+        spreadsheet.setExpression(a2, "=6");
+        spreadsheet.recompute();
+
+        assertIsDouble(spreadsheet.getValue(d1), 18);
+        assertIsDouble(spreadsheet.getValue(b1), 24);
+        assertIsDouble(spreadsheet.getValue(a1), 36);
+        assertIsDouble(spreadsheet.getValue(c1), 12);
+        assertIsDouble(spreadsheet.getValue(a2), 6);
+    }
+
 }

@@ -19,15 +19,31 @@ import java.util.Set;
  */
 
 // subscribing to a cell means that you become an observer of that cell
-// unsubscribing from a cell means that you are no longer an observer of that cell
+
+// unsubscribing from a cell means that you are no longer an observer of that
+// cell
 
 public class Cell implements Observer<Cell>, Subject {
-    final Spreadsheet spreadsheet;
-    final CellLocation cell_location;
-    String expression;
-    Value value;
-    LinkedHashSet<Cell> iobservethese = new LinkedHashSet<Cell>();
-    LinkedHashSet<Observer<Cell>> theseobserveme = new LinkedHashSet<Observer<Cell>>();
+    private final Spreadsheet spreadsheet;
+
+    public CellLocation getCell_location() {
+        return cell_location;
+    }
+
+    public LinkedHashSet<Cell> getIobservethese() {
+        return iobservethese;
+    }
+
+    public LinkedHashSet<Observer<Cell>> getTheseobserveme() {
+        return theseobserveme;
+    }
+
+    private final CellLocation cell_location;
+    private String expression;
+    private Value value;
+    private LinkedHashSet<Cell> iobservethese = new LinkedHashSet<Cell>();
+    private LinkedHashSet<Observer<Cell>> theseobserveme =
+                       new LinkedHashSet<Observer<Cell>>();
 
     public Cell (Spreadsheet spreadsheet, CellLocation cell_location){
         this.spreadsheet= spreadsheet;
@@ -61,9 +77,12 @@ public class Cell implements Observer<Cell>, Subject {
         addToNeedtoBeRecomputed();
 
         //3 subscribing to new cells in the expression
-        // there was a bug when i was making a newCell everytime i had a cell location, instead of
-        // getting the corresponding cell from the spreadsheet hashmap of cells with expressions set
-        Set<CellLocation> newiobservetheselocs = ExpressionUtils.getReferencedLocations(expression);
+        // there was a bug when i was making a newCell
+        // everytime i had a cell location, instead of
+        // getting the corresponding cell from the
+        // spreadsheet hashmap of cells with expressions set
+        Set<CellLocation> newiobservetheselocs = ExpressionUtils.
+                getReferencedLocations(expression);
         for (CellLocation cl : newiobservetheselocs){
             Cell correspondingCell;
 
@@ -95,10 +114,12 @@ public class Cell implements Observer<Cell>, Subject {
         }
 
         //4 inform all of the observers that this has changed
-        // here 'inform' means for all the observers of the cell (and also their observers), update method is invoked
+        // here 'inform' means for all the observers of the cell
+        // (and also their observers), update method is invoked
         this.notifyObservers();
 
-        //update(this); // when a new expression is set then this and all dependent cells become invalid (for now)
+        //update(this); // when a new expression is set then this and
+        // all dependent cells become invalid (for now)
     }
 
     public void setValue(Value value){
@@ -120,7 +141,7 @@ public class Cell implements Observer<Cell>, Subject {
 
     public boolean allPublishersHaveBeenRecomputed(){
         for (Cell publishercell: iobservethese){
-            if (!spreadsheet.toBeRemoved.contains(publishercell)){
+            if (!spreadsheet.getToBeRemoved().contains(publishercell)){
                 return false;
             }
         }

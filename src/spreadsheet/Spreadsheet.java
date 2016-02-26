@@ -3,21 +3,31 @@ package spreadsheet;
 import spreadsheet.api.CellLocation;
 import spreadsheet.api.ExpressionUtils;
 import spreadsheet.api.SpreadsheetInterface;
+import spreadsheet.api.observer.*;
+import spreadsheet.api.observer.Observer;
 import spreadsheet.api.value.*;
 
 import java.util.*;
 
 public class Spreadsheet implements SpreadsheetInterface {
 
-    private HashMap<CellLocation,Cell>  cellswithexpressionsset = new HashMap<CellLocation,Cell>();
+    private HashMap<CellLocation,Cell>  cellswithexpressionsset =
+             new HashMap<CellLocation,Cell>();
     private Set<Cell> needtoberecomputed = new HashSet<Cell>();
-    LinkedList<Cell> toBeRemoved = new LinkedList<Cell>();
+    private LinkedList<Cell> toBeRemoved = new LinkedList<Cell>();
+    private Map<CellLocation, Double> valuesOfCells = new
+                                             HashMap<CellLocation, Double>();
 
 
     public void setExpression(CellLocation location, String expression){
         if (!cellswithexpressionsset.containsKey(location)) {
-            Cell cell = new Cell(this, location); // by default the value is a string value
-            cell.setExpression(expression); // but then the cells setExpression method changes it to an invalid value
+            Cell cell = new Cell(this, location);
+            // by default the value is a string value
+
+            cell.setExpression(expression);
+            // but then the cells setExpression method changes
+            // it to an invalid value
+
             cellswithexpressionsset.put(location,cell);
         }
 
@@ -26,6 +36,9 @@ public class Spreadsheet implements SpreadsheetInterface {
         }
     }
 
+    public LinkedList<Cell> getToBeRemoved() {
+        return toBeRemoved;
+    }
 
     public void recompute(){
      Iterator<Cell> itneedtoberecomputed = needtoberecomputed.iterator();
@@ -52,14 +65,14 @@ public class Spreadsheet implements SpreadsheetInterface {
         //        "to be removed is " + toBeRemoved.contains(c) );
 
         if (!toBeRemoved.contains(c)) {
-            LinkedList<Cell> tobecomputedinorder = new LinkedList<Cell>();
+            Deque<Cell> tobecomputedinorder = new LinkedList<Cell>();
             tobecomputedinorder.add(c);
 
             while (!tobecomputedinorder.isEmpty()){
 
                 Cell currentcell = tobecomputedinorder.getFirst();
 
-                for (Cell publishercell : currentcell.iobservethese){
+                for (Cell publishercell : currentcell.getIobservethese()){
 
                     if (!toBeRemoved.contains(publishercell)){
                         tobecomputedinorder.addFirst(publishercell);
@@ -76,9 +89,11 @@ public class Spreadsheet implements SpreadsheetInterface {
 
                 Cell firstcell = tobecomputedinorder.getFirst();
                 if (firstcell.allPublishersHaveBeenRecomputed()){
-                    calculateCellValue(firstcell); // even if it has already
-                    // been computed before(i.e. not in need to be recomputed),
-                    // it will be computed again.
+
+                    setDependentCellValues((firstcell));
+
+                    firstcell.setValue(ExpressionUtils.computeValue(firstcell
+                                .getExpression(), valuesOfCells));
 
                     toBeRemoved.add(firstcell);
                     tobecomputedinorder.remove(firstcell);
@@ -88,17 +103,55 @@ public class Spreadsheet implements SpreadsheetInterface {
         }
     }
 
-    private void calculateCellValue(Cell cell){
-        cell.setValue(ExpressionUtils.computeValue(cell.getExpression(),
-                generateMapforDependents(cell)) );
+    private void setDependentCellValues(Cell cellin){
+
+        for (final Cell publishercell : cellin.getIobservethese()) {
+
+            publishercell.getValue().visit(new ValueVisitor() {
+                @Override
+                public void visitDouble(double value) {
+                    valuesOfCells.put(publishercell.getCell_location(), value);
+                }
+
+                @Override
+                public void visitLoop() {
+                    System.out.println("The cell: " + publishercell
+                            .getCell_location() + " at location " +
+                            publishercell +
+                            " is a " + "loop, shouldnt come here" );
+                }
+
+                @Override
+                public void visitString(String expression) {
+                   // System.out.println("The cell: " + publishercell
+                   //                 .getCell_location() + " at location " +
+                   //         publishercell +
+                   //         " is a " + "string, " + "dont" + " put "
+                   //                 +
+                   //                 "in" + " " + "hashmap");
+                }
+
+                @Override
+                public void visitInvalid(String expression) {
+                    System.out.println("The cell: " + publishercell
+                                    .getCell_location() + " at location " +
+                            publishercell +
+                            " is invalid, shouldnt come here");
+                }
+
+            });
+        }
     }
 
+
+
+/* // Don't need this now..
 
     private Map<CellLocation, Double> generateMapforDependents(Cell cell) {
         Map <CellLocation,Double> dependentcellmap = new
                 HashMap<CellLocation,Double>();
 
-        for (Cell publishercell : cell.iobservethese){
+        for (Cell publishercell : cell.getIobservethese()){
 
             final Double[] outervaluetoset = new Double[1];
 
@@ -130,13 +183,14 @@ public class Spreadsheet implements SpreadsheetInterface {
 
             });
 
-            dependentcellmap.put(publishercell.cell_location,
+            dependentcellmap.put(publishercell.getCell_location(),
                                              outervaluetoset[0]);
 
         }
 
         return dependentcellmap;
     }
+    */
 
 
     private void checkLoops(Cell cell, LinkedList<Cell> seencells){
@@ -150,7 +204,7 @@ public class Spreadsheet implements SpreadsheetInterface {
 
         else {
             seencells.add(cell);
-            Iterator<Cell> itiObserveThese = cell.iobservethese.iterator();
+            Iterator<Cell> itiObserveThese = cell.getIobservethese().iterator();
             while (itiObserveThese.hasNext()){
                 Cell dependentcell = itiObserveThese.next();
                 checkLoops(dependentcell,seencells);
@@ -186,14 +240,14 @@ public class Spreadsheet implements SpreadsheetInterface {
         if(!cellswithexpressionsset.containsKey(location)) {
             return location.toString();
         }
-        return cellswithexpressionsset.get(location).expression;
+        return cellswithexpressionsset.get(location).getExpression();
     }
 
     public Value getValue(CellLocation location){
         if (!cellswithexpressionsset.containsKey(location)) {
             return new StringValue(" ");
         }
-        return cellswithexpressionsset.get(location).value;
+        return cellswithexpressionsset.get(location).getValue();
     }
 
     public void addToNeedToBeRecomputed(Cell cell){

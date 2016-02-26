@@ -43,6 +43,7 @@ public class Spreadsheet implements SpreadsheetInterface {
 
     private void recomputeCell(Cell c){
 
+        System.out.println();
         LinkedList<Cell> seencells = new LinkedList<Cell>();
         checkLoops(c,seencells);
 
@@ -149,7 +150,6 @@ public class Spreadsheet implements SpreadsheetInterface {
 
         else {
             seencells.add(cell);
-
             Iterator<Cell> itiObserveThese = cell.iobservethese.iterator();
             while (itiObserveThese.hasNext()){
                 Cell dependentcell = itiObserveThese.next();

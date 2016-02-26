@@ -5,6 +5,7 @@ import spreadsheet.api.ExpressionUtils;
 import spreadsheet.api.observer.Observer;
 import spreadsheet.api.observer.Subject;
 import spreadsheet.api.value.InvalidValue;
+import spreadsheet.api.value.LoopValue;
 import spreadsheet.api.value.StringValue;
 import spreadsheet.api.value.Value;
 
@@ -68,6 +69,11 @@ public class Cell implements Observer<Cell>, Subject {
 
             if (spreadsheet.getCell(cl) != null) {
                 correspondingCell = spreadsheet.getCell(cl);
+            }
+
+            else if (cl.equals(this.cell_location)) {
+                correspondingCell = this;
+                spreadsheet.addNewCellToHashMap(cl,correspondingCell);
             }
 
             else {

@@ -63,6 +63,8 @@ public class Cell implements Observer<Cell>, Subject {
 
     public void setExpression(String expression){
 
+        // clear its value when expression is changed..
+        spreadsheet.getValuesOfCells().remove(cell_location);
 
         // 1
         // unsubscribe from the cells it was depending on

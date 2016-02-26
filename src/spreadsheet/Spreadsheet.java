@@ -3,8 +3,6 @@ package spreadsheet;
 import spreadsheet.api.CellLocation;
 import spreadsheet.api.ExpressionUtils;
 import spreadsheet.api.SpreadsheetInterface;
-import spreadsheet.api.observer.*;
-import spreadsheet.api.observer.Observer;
 import spreadsheet.api.value.*;
 
 import java.util.*;
@@ -15,6 +13,11 @@ public class Spreadsheet implements SpreadsheetInterface {
              new HashMap<CellLocation,Cell>();
     private Set<Cell> needtoberecomputed = new HashSet<Cell>();
     private LinkedList<Cell> toBeRemoved = new LinkedList<Cell>();
+
+    public Map<CellLocation, Double> getValuesOfCells() {
+        return valuesOfCells;
+    }
+
     private Map<CellLocation, Double> valuesOfCells = new
                                              HashMap<CellLocation, Double>();
 
